@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --crema: #f4ead5;
+  --tinta: #3b2614;
+}
+
+html, body, #root { min-height: 100%; }
+body {
+  margin: 0;
+  color: var(--tinta);
+  background-color: #efe2c6;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(255,255,255,.45), transparent 55%),
+    radial-gradient(ellipse at 80% 90%, rgba(120,80,30,.12), transparent 60%),
+    repeating-linear-gradient(17deg, rgba(90,60,20,.025) 0 2px, transparent 2px 7px);
+  font-family: Nunito, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .papel {
+    @apply rounded-2xl border border-[#c9ad7a] shadow-[0_4px_18px_rgba(59,38,20,.18)];
+    background-color: #f7eedb;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(255,255,255,.6), transparent 60%),
+      radial-gradient(ellipse at bottom right, rgba(160,110,40,.12), transparent 60%);
+  }
+  .btn {
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl px-5 py-3 font-bold transition active:scale-[.98] disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#b8860b];
+  }
+  .btn-primario {
+    @apply btn bg-tinta text-crema shadow-md hover:bg-[#2b1b0d];
+  }
+  .btn-oro {
+    @apply btn bg-gradient-to-b from-[#f0c75a] to-[#c8961e] text-[#2b1b0d] shadow-md;
+  }
+  .btn-secundario {
+    @apply btn border-2 border-tinta/70 bg-transparent text-tinta hover:bg-tinta/5;
+  }
+  .btn-icono {
+    @apply inline-flex h-11 w-11 items-center justify-center rounded-full border border-tinta/30 bg-[#f7eedb] text-tinta shadow-sm transition active:scale-95 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#b8860b];
+  }
+  .titulo {
+    @apply font-titulo font-bold tracking-wide;
+  }
+  .etiqueta {
+    @apply inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-bold;
+  }
+  .opcion {
+    @apply w-full min-h-[52px] rounded-xl border-2 border-[#c9ad7a] bg-[#fbf5e8] px-4 py-3 text-left text-[15px] leading-snug transition hover:border-tinta/60 active:scale-[.99] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#b8860b];
+  }
+}
+
+@keyframes aparecer { from { opacity: 0; transform: translateY(12px) } to { opacity: 1; transform: none } }
+.aparecer { animation: aparecer .35s ease-out both; }
+@keyframes flotar { 0% { opacity: 0; transform: translateY(4px) } 15% { opacity: 1 } 100% { opacity: 0; transform: translateY(-18px) } }
+.delta { animation: flotar 2.6s ease-out forwards; }
+@keyframes rodar { 0% { transform: rotate(0) scale(1) } 50% { transform: rotate(200deg) scale(1.15) } 100% { transform: rotate(360deg) scale(1) } }
+.rodando { animation: rodar .5s ease-in-out infinite; }
+@keyframes latido { 0%,100% { transform: scale(1) } 50% { transform: scale(1.12) } }
+.latido { animation: latido 1.6s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+@keyframes brillo { 0%,100% { opacity: .55 } 50% { opacity: 1 } }
+.brillo { animation: brillo 2s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
