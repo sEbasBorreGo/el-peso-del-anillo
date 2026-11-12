@@ -6,7 +6,9 @@ Encrucijada eliges **qué haces** y **por qué lo haces**; tus motivos cambian e
 
 > ¿Qué hace que alguien pequeño sea capaz de cargar con algo enorme?
 
-- **URL pública:** `PENDIENTE` (se completa al desplegar)
+- **URL pública:** https://el-peso-del-anillo.vercel.app
+
+  ![QR del juego](qr.png)
 - **QR:** `qr.png` en la raíz del repo (y `public/qr.png`). Dentro del juego: portada → “Ver QR”, o la dirección `…/#/qr` para proyectarlo en grande. Esa pantalla genera el QR con la URL donde esté abierto el juego, así que siempre apunta bien.
 
 ## Cómo se juega (resumen)

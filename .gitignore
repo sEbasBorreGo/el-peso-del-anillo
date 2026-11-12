@@ -1,6 +1,6 @@
-node_modules
-dist
-.vercel
-test-results
-playwright-report
 *.local
+.vercel
+dist
+node_modules
+playwright-report
+test-results
